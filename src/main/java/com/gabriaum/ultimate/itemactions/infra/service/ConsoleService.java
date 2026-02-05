@@ -1,4 +1,4 @@
-package com.gabriaum.ultimate.itemactions.service;
+package com.gabriaum.ultimate.itemactions.infra.service;
 
 import com.gabriaum.ultimate.itemactions.UltimateItemActionsMain;
 import org.bukkit.Bukkit;
