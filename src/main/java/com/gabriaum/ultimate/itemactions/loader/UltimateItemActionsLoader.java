@@ -16,7 +16,7 @@ public class UltimateItemActionsLoader {
     private final UltimateItemActionsManager manager;
 
     public void load() {
-        for (String key : itemsConfig.getKeys(true)) {
+        for (String key : itemsConfig.getKeys(false)) {
             ConsoleService.log(
                     String.format(
                             "Reading and caching item %s",
