@@ -21,7 +21,7 @@ public class PlayerInteractListener implements Listener {
     public void onPlayerInteract(PlayerInteractEvent event) {
         if (event.getAction().name().contains("RIGHT_")) {
             Player player = event.getPlayer();
-            ItemStack item = event.getItem();
+            ItemStack item = player.getItemInHand();
             if (item == null || item.getType().equals(Material.AIR)) return;
 
             AtomicReference<UltimateItemActions> reference = new AtomicReference<>(null);
