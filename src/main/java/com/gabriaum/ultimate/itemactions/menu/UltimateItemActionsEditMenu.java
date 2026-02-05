@@ -21,8 +21,8 @@ public class UltimateItemActionsEditMenu extends View {
         config.layout(
                 "         ",
                 " I D N L ",
-                "    A    ",
                 "         ",
+                "    A    ",
                 "<        "
         );
 
