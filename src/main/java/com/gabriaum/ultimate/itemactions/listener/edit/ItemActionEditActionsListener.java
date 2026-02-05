@@ -28,10 +28,12 @@ public class ItemActionEditActionsListener implements Listener {
 
             event.setCancelled(true);
 
-            updateParamService.addAction(
-                    ultimateItemActions,
-                    event.getMessage()
-            );
+            if (!event.getMessage().equalsIgnoreCase("cancel")) {
+                updateParamService.addAction(
+                        ultimateItemActions,
+                        event.getMessage()
+                );
+            }
 
             player.removeMetadata("ultimate_item_actions_edit_actions", UltimateItemActionsMain.getInstance());
             UltimateItemActionsMain.getInstance()

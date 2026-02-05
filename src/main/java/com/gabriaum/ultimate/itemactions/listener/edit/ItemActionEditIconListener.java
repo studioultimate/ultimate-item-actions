@@ -28,22 +28,24 @@ public class ItemActionEditIconListener implements Listener {
 
             event.setCancelled(true);
 
-            Material icon = null;
-            try {
-                icon = Material.getMaterial(event.getMessage());
-                if (icon == null || icon.equals(Material.AIR)) {
+            if (!event.getMessage().equalsIgnoreCase("cancel")) {
+                Material icon = null;
+                try {
+                    icon = Material.getMaterial(event.getMessage());
+                    if (icon == null || icon.equals(Material.AIR)) {
+                        player.sendMessage("§cIcon not found.");
+                        return;
+                    }
+                } catch (Exception ignored) {
                     player.sendMessage("§cIcon not found.");
                     return;
                 }
-            } catch (Exception ignored) {
-                player.sendMessage("§cIcon not found.");
-                return;
-            }
 
-            updateParamService.updateIcon(
-                    ultimateItemActions,
-                    icon
-            );
+                updateParamService.updateIcon(
+                        ultimateItemActions,
+                        icon
+                );
+            }
 
             player.removeMetadata("ultimate_item_actions_edit_icon", UltimateItemActionsMain.getInstance());
             UltimateItemActionsMain.getInstance()

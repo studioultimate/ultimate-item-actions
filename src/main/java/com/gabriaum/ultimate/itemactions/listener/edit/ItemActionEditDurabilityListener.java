@@ -27,18 +27,20 @@ public class ItemActionEditDurabilityListener implements Listener {
 
             event.setCancelled(true);
 
-            int durabiltiy = 0;
-            try {
-                durabiltiy = Integer.parseInt(event.getMessage());
-            } catch (Exception ignored) {
-                player.sendMessage("§cYou must enter an integer.");
-                return;
-            }
+            if (!event.getMessage().equalsIgnoreCase("cancel")) {
+                int durabiltiy = 0;
+                try {
+                    durabiltiy = Integer.parseInt(event.getMessage());
+                } catch (Exception ignored) {
+                    player.sendMessage("§cYou must enter an integer.");
+                    return;
+                }
 
-            updateParamService.updateDurability(
-                    ultimateItemActions,
-                    (short) durabiltiy
-            );
+                updateParamService.updateDurability(
+                        ultimateItemActions,
+                        (short) durabiltiy
+                );
+            }
 
             player.removeMetadata("ultimate_item_actions_edit_durability", UltimateItemActionsMain.getInstance());
             UltimateItemActionsMain.getInstance()

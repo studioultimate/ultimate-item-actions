@@ -27,10 +27,12 @@ public class ItemActionEditDisplayNameListener implements Listener {
 
             event.setCancelled(true);
 
-            updateParamService.updateDisplayName(
-                    ultimateItemActions,
-                    event.getMessage()
-            );
+            if (!event.getMessage().equalsIgnoreCase("cancel")) {
+                updateParamService.updateDisplayName(
+                        ultimateItemActions,
+                        event.getMessage()
+                );
+            }
 
             player.removeMetadata("ultimate_item_actions_edit_displayname", UltimateItemActionsMain.getInstance());
             UltimateItemActionsMain.getInstance()
