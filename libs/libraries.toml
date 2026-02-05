@@ -5,3 +5,4 @@ gitVersion              = { id = "com.palantir.git-version", version = "3.0.0" }
 
 [libraries]
 bukkitCommand           = { module = "com.github.saiintbrisson.command-framework:bukkit", version = "1.3.1" }
+inventoryFramework      = { module = "me.devnatan:inventory-framework-platform-bukkit", version = "3.3.10" }

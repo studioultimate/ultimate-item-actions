@@ -34,6 +34,7 @@ dependencies {
 
     implementation("de.tr7zw:item-nbt-api:2.15.5")
     implementation(libs.bukkitCommand)
+    implementation(libs.inventoryFramework)
 }
 
 tasks.shadowJar {
