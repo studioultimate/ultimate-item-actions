@@ -22,5 +22,12 @@ dependencies {
         )
     )
 
-    compileOnly("de.tr7zw:item-nbt-api:2.15.5")
+    implementation("de.tr7zw:item-nbt-api:2.15.5")
+}
+
+tasks.shadowJar {
+    relocate(
+        "de.tr7zw.changeme.nbtapi",
+        "com.gabriaum.ultimate.itemactions.infra.util.nbtapi"
+    )
 }
