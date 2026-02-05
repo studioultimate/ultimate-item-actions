@@ -35,12 +35,12 @@ public class ItemActionsExecuteService {
         if (action.startsWith("title:")) {
             action = action.replace("title:", "");
             String[] split = action.split(";");
-            if (split.length > 5) {
+            if (split.length > 4) {
                 String title = split[0];
                 String subtitle = split[1];
                 int fadeIn = Integer.parseInt(split[2]);
-                int stay = Integer.parseInt(split[2]);
-                int fadeOut = Integer.parseInt(split[2]);
+                int stay = Integer.parseInt(split[3]);
+                int fadeOut = Integer.parseInt(split[4]);
 
                 player.sendTitle(
                         new Title(
