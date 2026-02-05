@@ -1,6 +1,7 @@
 package com.gabriaum.ultimate.itemactions.command;
 
 import com.gabriaum.ultimate.itemactions.command.argument.CommandArgumentHandler;
+import com.gabriaum.ultimate.itemactions.command.argument.impl.AdminCommandEditArgumentHandler;
 import com.gabriaum.ultimate.itemactions.command.argument.impl.AdminCommandGiveArgumentHandler;
 import com.gabriaum.ultimate.itemactions.command.argument.impl.AdminCommandRemoveArgumentHandler;
 import me.saiintbrisson.minecraft.command.annotation.Command;
@@ -13,6 +14,7 @@ import java.util.*;
 public class AdminCommand {
     protected final List<CommandArgumentHandler> argumentHandlers = new ArrayList<>(
             Arrays.asList(
+                    new AdminCommandEditArgumentHandler(),
                     new AdminCommandGiveArgumentHandler(),
                     new AdminCommandRemoveArgumentHandler()
             )
@@ -53,6 +55,7 @@ public class AdminCommand {
         context.sendMessage(" ");
         context.sendMessage("§6Use of §a/" + context.getLabel() + "§6:");
         context.sendMessage("§e/" + context.getLabel() + " create <item-key> §b- Create a new custom item action.");
+        context.sendMessage("§e/" + context.getLabel() + " edit <item-key> §b- Edit a custom item action.");
         context.sendMessage("§e/" + context.getLabel() + " remove <item-key> §b- Remove custom item action.");
         context.sendMessage("§e/" + context.getLabel() + " give <target> <item-key> [amount] §b- Send a custom item to a player.");
         context.sendMessage(" ");
