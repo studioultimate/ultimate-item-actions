@@ -40,6 +40,7 @@ public class PlayerInteractListener implements Listener {
             else
                 player.getInventory().remove(item);
 
+            player.updateInventory();
             executeService.handle(
                     player,
                     ultimateItemActions.getActions()
