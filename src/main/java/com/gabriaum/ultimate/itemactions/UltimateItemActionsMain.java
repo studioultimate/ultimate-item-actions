@@ -6,7 +6,9 @@ import com.gabriaum.ultimate.itemactions.infra.util.ConfigUtil;
 import com.gabriaum.ultimate.itemactions.listener.PlayerInteractListener;
 import com.gabriaum.ultimate.itemactions.loader.UltimateItemActionsLoader;
 import com.gabriaum.ultimate.itemactions.manager.UltimateItemActionsManager;
+import com.gabriaum.ultimate.itemactions.menu.UltimateItemActionsEditMenu;
 import lombok.Getter;
+import me.devnatan.inventoryframework.ViewFrame;
 import me.saiintbrisson.bukkit.command.BukkitFrame;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -36,6 +38,7 @@ public class UltimateItemActionsMain extends JavaPlugin {
     public void onEnable() {
         loadManagers();
         loadListeners();
+        loadInventories();
         loadCommands();
 
         ConsoleService.log("Apparently no problems were found and the plugin was started.");
@@ -51,6 +54,13 @@ public class UltimateItemActionsMain extends JavaPlugin {
         PluginManager pluginManager = getServer().getPluginManager();
 
         pluginManager.registerEvents(new PlayerInteractListener(), this);
+    }
+
+    private void loadInventories() {
+        ViewFrame.create(this)
+                .with(
+                        new UltimateItemActionsEditMenu()
+                );
     }
 
     private void loadCommands() {
