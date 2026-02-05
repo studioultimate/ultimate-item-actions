@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    alias(libs.plugins.shadowJar)
 }
 
 group = "com.gabriaum.ultimate.itemactions"
