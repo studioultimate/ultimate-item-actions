@@ -1,7 +1,10 @@
+import java.io.ByteArrayOutputStream
+
 plugins {
     id("java")
     alias(libs.plugins.shadowJar)
     alias(libs.plugins.bukkitYaml)
+    alias(libs.plugins.gitVersion)
 }
 
 group = "com.gabriaum.ultimate.itemactions"
@@ -31,4 +34,31 @@ tasks.shadowJar {
         "de.tr7zw.changeme.nbtapi",
         "com.gabriaum.ultimate.itemactions.infra.util.nbtapi"
     )
+}
+
+fun gitCommand(vararg args: String): String {
+    val stdout = ByteArrayOutputStream()
+    exec {
+        commandLine("git", *args)
+        standardOutput = stdout
+    }
+    return stdout.toString().trim()
+}
+
+fun gitHash(): String =
+    gitCommand("rev-parse", "--short", "HEAD")
+
+fun gitBranch(): String =
+    gitCommand("rev-parse", "--abbrev-ref", "HEAD")
+
+fun getBuildDate(): String =
+    gitCommand("show", "--no-patch", "--format=%ci")
+        .replace(" -0300", "")
+        .replace("-", "/")
+
+bukkit {
+    name = "UltimateItemActions"
+    main = "com.gabriaum.ultimate.itemactions.UltimateItemActionsMain"
+    version = "1.0.0-${gitHash()} from ${gitBranch()} LTS (${getBuildDate()})"
+    author = "gabriaum"
 }
