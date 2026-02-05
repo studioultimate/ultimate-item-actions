@@ -6,7 +6,6 @@ import com.gabriaum.ultimate.itemactions.infra.util.ConfigUtil;
 import com.gabriaum.ultimate.itemactions.manager.UltimateItemActionsManager;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
-import org.bukkit.configuration.ConfigurationSection;
 
 import java.util.ArrayList;
 import java.util.List;
