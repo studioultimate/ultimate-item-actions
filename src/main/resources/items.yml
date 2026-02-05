@@ -5,7 +5,7 @@ test:
   # The material of the item.
   # Must be a valid Bukkit/Spigot Material name.
   # Example: DIAMOND_SWORD, PAPER, CHEST
-  icon: DYE
+  icon: INK_SACK
 
   # Durability (data value) of the item.
   # Commonly used in legacy versions (1.8.x) to define item variants.
