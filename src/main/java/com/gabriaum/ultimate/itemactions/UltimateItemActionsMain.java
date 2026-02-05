@@ -2,6 +2,7 @@ package com.gabriaum.ultimate.itemactions;
 
 import com.gabriaum.ultimate.itemactions.infra.service.ConsoleService;
 import com.gabriaum.ultimate.itemactions.infra.util.ConfigUtil;
+import com.gabriaum.ultimate.itemactions.loader.UltimateItemActionsLoader;
 import com.gabriaum.ultimate.itemactions.manager.UltimateItemActionsManager;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -35,6 +36,8 @@ public class UltimateItemActionsMain extends JavaPlugin {
 
     private void loadManagers() {
         manager = new UltimateItemActionsManager();
+        UltimateItemActionsLoader loader = new UltimateItemActionsLoader(itemsConfig, manager);
+        loader.load();
     }
 
     @Override
