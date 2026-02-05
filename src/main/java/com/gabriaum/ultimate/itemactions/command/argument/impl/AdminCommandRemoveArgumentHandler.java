@@ -33,6 +33,7 @@ public class AdminCommandRemoveArgumentHandler implements CommandArgumentHandler
         }
 
         UltimateItemActionsMain.getInstance().getItemsConfig().set(args[1], null);
+        UltimateItemActionsMain.getInstance().getManager().remove(ultimateItemActions);
 
         context.sendMessage(
                 String.format(
