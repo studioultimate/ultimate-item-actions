@@ -4,13 +4,11 @@ import com.gabriaum.ultimate.itemactions.command.AdminCommand;
 import com.gabriaum.ultimate.itemactions.infra.service.ConsoleService;
 import com.gabriaum.ultimate.itemactions.infra.util.ConfigUtil;
 import com.gabriaum.ultimate.itemactions.listener.PlayerInteractListener;
-import com.gabriaum.ultimate.itemactions.listener.edit.ItemActionEditActionsListener;
-import com.gabriaum.ultimate.itemactions.listener.edit.ItemActionEditDisplayNameListener;
-import com.gabriaum.ultimate.itemactions.listener.edit.ItemActionEditDurabilityListener;
-import com.gabriaum.ultimate.itemactions.listener.edit.ItemActionEditIconListener;
+import com.gabriaum.ultimate.itemactions.listener.edit.*;
 import com.gabriaum.ultimate.itemactions.loader.UltimateItemActionsLoader;
 import com.gabriaum.ultimate.itemactions.manager.UltimateItemActionsManager;
 import com.gabriaum.ultimate.itemactions.menu.UltimateItemActionsEditActionsMenu;
+import com.gabriaum.ultimate.itemactions.menu.UltimateItemActionsEditDescriptionMenu;
 import com.gabriaum.ultimate.itemactions.menu.UltimateItemActionsEditMenu;
 import lombok.Getter;
 import me.devnatan.inventoryframework.ViewFrame;
@@ -64,13 +62,15 @@ public class UltimateItemActionsMain extends JavaPlugin {
         pluginManager.registerEvents(new ItemActionEditDurabilityListener(), this);
         pluginManager.registerEvents(new ItemActionEditIconListener(), this);
         pluginManager.registerEvents(new ItemActionEditActionsListener(), this);
+        pluginManager.registerEvents(new ItemActionEditDescriptionListener(), this);
     }
 
     private void loadInventories() {
         viewFrame = ViewFrame.create(this)
                 .with(
                         new UltimateItemActionsEditMenu(),
-                        new UltimateItemActionsEditActionsMenu()
+                        new UltimateItemActionsEditActionsMenu(),
+                        new UltimateItemActionsEditDescriptionMenu()
                 )
                 .register();
     }

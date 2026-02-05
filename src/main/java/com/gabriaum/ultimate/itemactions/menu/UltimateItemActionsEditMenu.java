@@ -90,11 +90,14 @@ public class UltimateItemActionsEditMenu extends View {
                         .setName("§aDescription")
                         .addLore("§eClick to modify!")
                         .getStack())
-                .onClick(event -> {
+                .onClick(event ->
+                                event.openForPlayer(
+                                        UltimateItemActionsEditDescriptionMenu.class,
+                                        ultimateItemActions
+                                )
+                );
 
-                });
-
-        render.layoutSlot('A', new ItemBuilder(Material.PAPER)
+        render.layoutSlot('A', new ItemBuilder(Material.ITEM_FRAME)
                         .setName("§aActions")
                         .addLore("§eClick to modify!")
                         .getStack())
