@@ -1,6 +1,6 @@
 package com.gabriaum.ultimate.itemactions;
 
-import com.gabriaum.ultimate.itemactions.service.ConsoleService;
+import com.gabriaum.ultimate.itemactions.infra.service.ConsoleService;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
