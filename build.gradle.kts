@@ -49,6 +49,8 @@ tasks.shadowJar {
         "me.devnatan.inventoryframework",
         "com.gabriaum.ultimate.itemactions.infra.util.inventory"
     )
+
+    archiveFileName.set("UltimateItemActions-${version}.jar")
 }
 
 fun gitCommand(vararg args: String): String {
