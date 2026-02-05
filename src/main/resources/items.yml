@@ -1,0 +1,48 @@
+# Unique ID of the interactive item.
+# This ID is used internally by the plugin to identify the item.
+test:
+
+  # The material of the item.
+  # Must be a valid Bukkit/Spigot Material name.
+  # Example: DIAMOND_SWORD, PAPER, CHEST
+  icon: DYE
+
+  # Durability (data value) of the item.
+  # Commonly used in legacy versions (1.8.x) to define item variants.
+  # Example: DYE with durability 14 = Red Dye
+  durability: 14
+
+  # Display name of the item.
+  # Supports color codes using '&'.
+  display_name: "Test"
+
+  # Lore (description) of the item.
+  # Each line represents one line in the item's lore.
+  # Supports color codes.
+  description:
+    - "This is only the test"
+    - "" # Empty line for spacing
+    - "Click to execute."
+
+  # List of actions executed when the player interacts with the item.
+  # Actions are executed in the order they are listed.
+  actions:
+
+    # Sends a chat message to the player.
+    # Format: sendmessage: <message>
+    - "sendmessage: Hi :)"
+
+    # Sends a title and subtitle to the player.
+    # Format:
+    # title: <title>;<subtitle>;<fadeIn>;<stay>;<fadeOut>
+    - "title: &aHi people!;&eHow are you?;10;20;10"
+
+    # Executes a command as the console.
+    # {player} is replaced with the player's name.
+    # Format: console: <command>
+    - "console: give {player} diamond 1"
+
+    # Plays a sound to the player.
+    # Must be a valid Sound enum for the server version.
+    # Format: play: <sound>
+    - "play: LEVEL_UP"
