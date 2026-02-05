@@ -11,7 +11,9 @@ import java.util.*;
 
 public class AdminCommand {
     protected final List<CommandArgumentHandler> argumentHandlers = new ArrayList<>(
-            Collections.emptyList()
+            Arrays.asList(
+                    new AdminCommandGiveArgumentHandler()
+            )
     );
 
     @Command(
