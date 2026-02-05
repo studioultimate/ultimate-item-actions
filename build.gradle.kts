@@ -17,9 +17,10 @@ java {
 
 repositories {
     mavenCentral()
-    mavenLocal()
     maven("https://repo.codemc.io/repository/maven-public/")
     maven("https://jitpack.io")
+    maven("https://repo.codemc.org/repository/maven-public/")
+    maven("https://oss.sonatype.org/content/repositories/snapshot")
 }
 
 dependencies {
@@ -35,12 +36,18 @@ dependencies {
     implementation("de.tr7zw:item-nbt-api:2.15.5")
     implementation(libs.bukkitCommand)
     implementation(libs.inventoryFramework)
+
 }
 
 tasks.shadowJar {
     relocate(
         "de.tr7zw.changeme.nbtapi",
         "com.gabriaum.ultimate.itemactions.infra.util.nbtapi"
+    )
+
+    relocate(
+        "me.devnatan.inventoryframework",
+        "com.gabriaum.ultimate.itemactions.infra.util.inventory"
     )
 }
 
