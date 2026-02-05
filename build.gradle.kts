@@ -24,8 +24,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly("org.projectlombok:lombok:1.18.32")
-    annotationProcessor("org.projectlombok:lombok:1.18.32")
+    compileOnly(libs.lombok)
+    annotationProcessor(libs.lombok)
 
     compileOnly(
         files(
@@ -33,7 +33,7 @@ dependencies {
         )
     )
 
-    implementation("de.tr7zw:item-nbt-api:2.15.5")
+    implementation(libs.nbt)
     implementation(libs.annotations)
     implementation(libs.bukkitCommand)
     implementation(libs.inventoryFramework)
