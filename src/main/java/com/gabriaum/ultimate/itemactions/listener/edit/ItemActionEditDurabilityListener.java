@@ -11,28 +11,36 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class ItemActionEditDisplayNameListener implements Listener {
+public class ItemActionEditDurabilityListener implements Listener {
     private final ItemActionsUpdateParamService updateParamService = new ItemActionsUpdateParamService();
 
     @EventHandler(priority = EventPriority.LOW)
     public void onAsyncPlayerChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
-        if (player.hasMetadata("ultimate_item_actions_edit_displayname")) {
-            String key = player.getMetadata("ultimate_item_actions_edit_displayname").get(0).asString();
+        if (player.hasMetadata("ultimate_item_actions_edit_durability")) {
+            String key = player.getMetadata("ultimate_item_actions_edit_durability").get(0).asString();
             UltimateItemActions ultimateItemActions = UltimateItemActionsRegistry.getByKey(key);
             if (ultimateItemActions == null) {
-                player.removeMetadata("ultimate_item_actions_edit_displayname", UltimateItemActionsMain.getInstance());
+                player.removeMetadata("ultimate_item_actions_edit_durability", UltimateItemActionsMain.getInstance());
                 return;
             }
 
             event.setCancelled(true);
 
-            updateParamService.updateDisplayName(
+            int durabiltiy = 0;
+            try {
+                durabiltiy = Integer.parseInt(event.getMessage());
+            } catch (Exception ignored) {
+                player.sendMessage("§cYou must enter an integer.");
+                return;
+            }
+
+            updateParamService.updateDurability(
                     ultimateItemActions,
-                    event.getMessage()
+                    (short) durabiltiy
             );
 
-            player.removeMetadata("ultimate_item_actions_edit_displayname", UltimateItemActionsMain.getInstance());
+            player.removeMetadata("ultimate_item_actions_edit_durability", UltimateItemActionsMain.getInstance());
             UltimateItemActionsMain.getInstance()
                     .getViewFrame()
                     .open(

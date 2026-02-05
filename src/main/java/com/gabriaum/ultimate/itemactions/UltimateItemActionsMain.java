@@ -5,6 +5,7 @@ import com.gabriaum.ultimate.itemactions.infra.service.ConsoleService;
 import com.gabriaum.ultimate.itemactions.infra.util.ConfigUtil;
 import com.gabriaum.ultimate.itemactions.listener.PlayerInteractListener;
 import com.gabriaum.ultimate.itemactions.listener.edit.ItemActionEditDisplayNameListener;
+import com.gabriaum.ultimate.itemactions.listener.edit.ItemActionEditDurabilityListener;
 import com.gabriaum.ultimate.itemactions.loader.UltimateItemActionsLoader;
 import com.gabriaum.ultimate.itemactions.manager.UltimateItemActionsManager;
 import com.gabriaum.ultimate.itemactions.menu.UltimateItemActionsEditMenu;
@@ -57,6 +58,7 @@ public class UltimateItemActionsMain extends JavaPlugin {
 
         pluginManager.registerEvents(new PlayerInteractListener(), this);
         pluginManager.registerEvents(new ItemActionEditDisplayNameListener(), this);
+        pluginManager.registerEvents(new ItemActionEditDurabilityListener(), this);
     }
 
     private void loadInventories() {
