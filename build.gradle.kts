@@ -1,6 +1,7 @@
 plugins {
     id("java")
     alias(libs.plugins.shadowJar)
+    alias(libs.plugins.bukkitYaml)
 }
 
 group = "com.gabriaum.ultimate.itemactions"
