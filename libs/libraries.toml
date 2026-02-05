@@ -4,5 +4,6 @@ bukkitYaml              = { id = "net.minecrell.plugin-yml.bukkit", version = "0
 gitVersion              = { id = "com.palantir.git-version", version = "3.0.0" }
 
 [libraries]
+annotations             = { module = "org.jetbrains:annotations", version = "24.1.0" }
 bukkitCommand           = { module = "com.github.saiintbrisson.command-framework:bukkit", version = "1.3.1" }
 inventoryFramework      = { module = "me.devnatan:inventory-framework-platform-bukkit", version = "3.3.10" }
