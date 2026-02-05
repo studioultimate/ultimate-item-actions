@@ -4,6 +4,7 @@ import com.gabriaum.ultimate.itemactions.command.AdminCommand;
 import com.gabriaum.ultimate.itemactions.infra.service.ConsoleService;
 import com.gabriaum.ultimate.itemactions.infra.util.ConfigUtil;
 import com.gabriaum.ultimate.itemactions.listener.PlayerInteractListener;
+import com.gabriaum.ultimate.itemactions.listener.edit.ItemActionEditDisplayNameListener;
 import com.gabriaum.ultimate.itemactions.loader.UltimateItemActionsLoader;
 import com.gabriaum.ultimate.itemactions.manager.UltimateItemActionsManager;
 import com.gabriaum.ultimate.itemactions.menu.UltimateItemActionsEditMenu;
@@ -20,6 +21,7 @@ public class UltimateItemActionsMain extends JavaPlugin {
 
     private ConfigUtil itemsConfig;
     private UltimateItemActionsManager manager;
+    private ViewFrame viewFrame;
 
     @Override
     public void onLoad() {
@@ -54,13 +56,15 @@ public class UltimateItemActionsMain extends JavaPlugin {
         PluginManager pluginManager = getServer().getPluginManager();
 
         pluginManager.registerEvents(new PlayerInteractListener(), this);
+        pluginManager.registerEvents(new ItemActionEditDisplayNameListener(), this);
     }
 
     private void loadInventories() {
-        ViewFrame.create(this)
+        viewFrame = ViewFrame.create(this)
                 .with(
                         new UltimateItemActionsEditMenu()
-                );
+                )
+                .register();
     }
 
     private void loadCommands() {
