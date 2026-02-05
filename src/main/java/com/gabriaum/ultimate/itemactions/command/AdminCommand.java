@@ -1,6 +1,7 @@
 package com.gabriaum.ultimate.itemactions.command;
 
 import com.gabriaum.ultimate.itemactions.command.argument.CommandArgumentHandler;
+import com.gabriaum.ultimate.itemactions.command.argument.impl.AdminCommandCreateArgumentHandler;
 import com.gabriaum.ultimate.itemactions.command.argument.impl.AdminCommandEditArgumentHandler;
 import com.gabriaum.ultimate.itemactions.command.argument.impl.AdminCommandGiveArgumentHandler;
 import com.gabriaum.ultimate.itemactions.command.argument.impl.AdminCommandRemoveArgumentHandler;
@@ -14,6 +15,7 @@ import java.util.*;
 public class AdminCommand {
     protected final List<CommandArgumentHandler> argumentHandlers = new ArrayList<>(
             Arrays.asList(
+                    new AdminCommandCreateArgumentHandler(),
                     new AdminCommandEditArgumentHandler(),
                     new AdminCommandGiveArgumentHandler(),
                     new AdminCommandRemoveArgumentHandler()
