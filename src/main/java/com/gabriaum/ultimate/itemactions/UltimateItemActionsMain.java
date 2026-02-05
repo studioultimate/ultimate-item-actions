@@ -1,5 +1,6 @@
 package com.gabriaum.ultimate.itemactions;
 
+import com.gabriaum.ultimate.itemactions.service.ConsoleService;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -10,12 +11,14 @@ public class UltimateItemActionsMain extends JavaPlugin {
 
     @Override
     public void onLoad() {
+        ConsoleService.log("Starting loading operations...");
+
         saveDefaultConfig();
     }
 
     @Override
     public void onEnable() {
-
+        ConsoleService.log("Apparently no problems were found and the plugin was started.");
     }
 
     @Override
