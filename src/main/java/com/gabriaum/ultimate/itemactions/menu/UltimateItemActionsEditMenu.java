@@ -98,9 +98,12 @@ public class UltimateItemActionsEditMenu extends View {
                         .setName("§aActions")
                         .addLore("§eClick to modify!")
                         .getStack())
-                .onClick(event -> {
-
-                });
+                .onClick(event ->
+                        event.openForPlayer(
+                                UltimateItemActionsEditActionsMenu.class,
+                                ultimateItemActions
+                        )
+                );
     }
 
     private void giveMetadataTo(Player player, String action, String key) {
