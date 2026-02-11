@@ -1,10 +1,7 @@
 package com.gabriaum.ultimate.itemactions.command;
 
 import com.gabriaum.ultimate.itemactions.command.argument.CommandArgumentHandler;
-import com.gabriaum.ultimate.itemactions.command.argument.impl.AdminCommandCreateArgumentHandler;
-import com.gabriaum.ultimate.itemactions.command.argument.impl.AdminCommandEditArgumentHandler;
-import com.gabriaum.ultimate.itemactions.command.argument.impl.AdminCommandGiveArgumentHandler;
-import com.gabriaum.ultimate.itemactions.command.argument.impl.AdminCommandRemoveArgumentHandler;
+import com.gabriaum.ultimate.itemactions.command.argument.impl.*;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.command.Context;
 import org.bukkit.command.CommandSender;
@@ -15,6 +12,7 @@ import java.util.*;
 public class AdminCommand {
     protected final List<CommandArgumentHandler> argumentHandlers = new ArrayList<>(
             Arrays.asList(
+                    new AdminCommandReloadArgumentHandler(),
                     new AdminCommandCreateArgumentHandler(),
                     new AdminCommandEditArgumentHandler(),
                     new AdminCommandGiveArgumentHandler(),
